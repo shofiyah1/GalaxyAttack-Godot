@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://font/Slugterra.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://script/Timer.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 1 )
+
+[node name="Timer" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+seconds = 20
+
+[node name="min" type="Label" parent="."]
+margin_left = 1039.0
+margin_top = 33.0
+margin_right = 1119.0
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 4 )
+text = "00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sec" type="RichTextLabel" parent="."]
+margin_left = 1116.0
+margin_top = 32.0
+margin_right = 1203.0
+margin_bottom = 146.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "00
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dsec" type="RichTextLabel" parent="."]
+margin_left = 1192.0
+margin_top = 32.0
+margin_right = 1298.0
+margin_bottom = 133.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

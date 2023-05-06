@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://script/gameoverH.gd" type="Script" id=1]
+[ext_resource path="res://font/Slugterra.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sounds/gameover.mp3" type="AudioStream" id=3]
+[ext_resource path="res://image/game_over.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_color = Color( 0.188235, 0.156863, 0.588235, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.188235, 0.156863, 0.588235, 1 )
+border_color = Color( 0.188235, 0.156863, 0.588235, 1 )
+border_blend = true
+
+[node name="game_overH" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Sprite" parent="."]
+position = Vector2( 642, 367 )
+scale = Vector2( 0.667188, 0.709491 )
+texture = ExtResource( 4 )
+
+[node name="playagain" type="Button" parent="."]
+margin_left = 330.0
+margin_top = 567.0
+margin_right = 626.0
+margin_bottom = 634.0
+rect_pivot_offset = Vector2( 238.314, 33.8271 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "Play Again"
+flat = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="Button" parent="."]
+margin_left = 664.0
+margin_top = 566.0
+margin_right = 951.0
+margin_bottom = 633.0
+rect_pivot_offset = Vector2( 238.314, 33.8271 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "Quit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[connection signal="pressed" from="playagain" to="playagain" method="_on_playagain_pressed"]
+[connection signal="pressed" from="quit" to="playagain" method="_on_quit_pressed"]

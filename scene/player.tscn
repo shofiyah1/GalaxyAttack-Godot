@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://script/player.gd" type="Script" id=5]
+[ext_resource path="res://image/crosshair1.png" type="Texture" id=6]
+[ext_resource path="res://image/crosshair2.png" type="Texture" id=7]
+[ext_resource path="res://scene/AfterburnParticles.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/pesawat/pesawatts.glb" type="PackedScene" id=9]
+
+[node name="player" type="KinematicBody"]
+script = ExtResource( 5 )
+
+[node name="Gun0" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -3 )
+
+[node name="Gun1" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -3 )
+
+[node name="Crosshair" type="Sprite3D" parent="."]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -60.8083 )
+billboard = 1
+texture = ExtResource( 6 )
+
+[node name="Crosshair2" type="Sprite3D" parent="."]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 5, 0, 0, -250 )
+billboard = 1
+texture = ExtResource( 7 )
+
+[node name="Particles" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.512402, 2.04383 )
+
+[node name="pesawatts" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.998692, 0, -0.0511333, 0, 1, 0, 0.0511333, 0, 0.998692, 0.107888, 0.478622, -1.02444 )
